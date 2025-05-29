@@ -1,1 +1,9 @@
 # Proyecto parcial2_lfms
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=usrparcial2
+DB_PASSWORD=P4rc14L2-2025.
+DB_NAME=parcial2
+
+DEFAULT_PASSWORD=hola123
