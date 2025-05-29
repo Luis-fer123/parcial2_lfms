@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { Serie } from '@/models/serie'
+import type { series } from '@/models/series'
 import http from '@/plugins/axios'
 import { Dialog, InputGroup, InputGroupAddon, InputText } from 'primevue'
 import Button from 'primevue/button'
 import { computed, onMounted, ref } from 'vue'
 
 const ENDPOINT = 'series'
-const series = ref<Serie[]>([])
+const series = ref<series[]>([])
 const emit = defineEmits(['edit'])
-const serieDelete = ref<Serie | null>(null)
+const serieDelete = ref<series | null>(null)
 const mostrarConfirmDialog = ref<boolean>(false)
 const busqueda = ref<string>('')
 
@@ -26,11 +26,11 @@ const seriesFiltradas = computed(() => {
   )
 })
 
-function emitirEdicion(serie: Serie) {
+function emitirEdicion(serie: series) {
   emit('edit', serie)
 }
 
-function mostrarEliminarConfirm(serie: Serie) {
+function mostrarEliminarConfirm(serie: series) {
   serieDelete.value = serie
   mostrarConfirmDialog.value = true
 }
