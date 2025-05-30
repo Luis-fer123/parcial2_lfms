@@ -30,4 +30,7 @@ export class Serie {
 
   @Column('date', { name: 'fecha_estreno' })
   fechaEstreno: Date;
+
+  @Column('varchar', { length: 100, name: 'idiomaprincipal' })
+  idiomaPrincipal: string;
 }

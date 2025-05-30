@@ -44,6 +44,7 @@ async function handleSave() {
       director: serie.value.director,
       temporadas: serie.value.temporadas,
       fechaEstreno: serie.value.fechaEstreno,
+      idiomaPrincipal: serie.value.idiomaPrincipal,
     }
 
     if (props.modoEdicion) {
@@ -67,8 +68,8 @@ async function handleSave() {
       :header="props.modoEdicion ? 'Editar Serie' : 'Crear Serie'"
       style="width: 30rem"
     >
-      <div class="flex flex-col gap-3 mb-3">
-        <label class="font-semibold">id País</label>
+    <div class="flex flex-col gap-3 mb-3">
+        <label class="font-semibold">Id Pais</label>
         <InputNumber v-model="serie.idpais" :useGrouping="false" />
       </div>
 
@@ -95,6 +96,11 @@ async function handleSave() {
       <div class="flex flex-col gap-3 mb-4">
         <label class="font-semibold">Fecha de Estreno</label>
         <Calendar v-model="serie.fechaEstreno" date-format="yy-mm-dd" show-icon />
+      </div>
+
+      <div class="flex flex-col gap-3 mb-3">
+        <label class="font-semibold">Idioma Principal</label>
+        <InputText v-model="serie.idiomaPrincipal" />
       </div>
       <div class="flex justify-end gap-2">
         <Button

@@ -54,4 +54,13 @@ export class CreateSerieDto {
     },
   )
   readonly fechaEstreno: string;
+  @ApiProperty()
+  @IsNotEmpty({ message: 'El campo idiomaPrincipal es requerido' })
+  @IsString({
+    message: 'El campo idiomaPrincipal debe ser una cadena de texto',
+  })
+  @MaxLength(100, {
+    message: 'El campo idiomaPrincipal no debe exceder los 100 caracteres',
+  })
+  readonly idiomaPrincipal: string;
 }

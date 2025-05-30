@@ -87,6 +87,10 @@ export class SeriesService {
       serie.fechaEstreno = new Date(updateSerieDto.fechaEstreno);
     }
 
+    if (updateSerieDto.idiomaPrincipal !== undefined) {
+      serie.idiomaPrincipal = updateSerieDto.idiomaPrincipal.trim();
+    }
+
     return this.seriesRepository.save(serie);
   }
 

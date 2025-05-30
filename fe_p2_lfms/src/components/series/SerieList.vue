@@ -22,7 +22,8 @@ const seriesFiltradas = computed(() => {
       serie.titulo.toLowerCase().includes(busqueda.value.toLowerCase()) ||
       serie.director.toLowerCase().includes(busqueda.value.toLowerCase()) ||
       serie.sinopsis.toLowerCase().includes(busqueda.value.toLowerCase()) ||
-      String(serie.fechaEstreno).includes(busqueda.value),
+      String(serie.fechaEstreno).includes(busqueda.value) ||
+      serie.fechaEstreno.toLowerCase().includes(busqueda.value.toLowerCase()),
   )
 })
 
@@ -55,7 +56,7 @@ defineExpose({ obtenerLista })
         <InputText
           v-model="busqueda"
           type="text"
-          placeholder="Buscar por título, director o sinopsis"
+          placeholder="Buscar por título o director"
         />
       </InputGroup>
     </div>
@@ -64,12 +65,13 @@ defineExpose({ obtenerLista })
       <thead>
         <tr>
           <th>Nro.</th>
-          <th>IdPais</th>
+          <th>idpais</th>
           <th>Título</th>
           <th>Sinopsis</th>
           <th>Director</th>
           <th>Temporadas</th>
           <th>Fecha de Estreno</th>
+          <th>Idioma Principal</th>
         </tr>
       </thead>
       <tbody>
@@ -81,6 +83,7 @@ defineExpose({ obtenerLista })
           <td>{{ serie.director }}</td>
           <td>{{ serie.temporadas }}</td>
           <td>{{ serie.fechaEstreno }}</td>
+          <td>{{ serie.idiomaPrincipal }}</td>
 
           <td>
             <Button icon="pi pi-pencil" aria-label="Editar" text @click="emitirEdicion(serie)" />
@@ -104,7 +107,7 @@ defineExpose({ obtenerLista })
       header="Confirmar Eliminación"
       :style="{ width: '25rem' }"
     >
-      <p>¿Estás seguro de que deseas eliminar esta serie?</p>
+      <p>¿Estás seguro de que deseas eliminar?</p>
       <div class="flex justify-end gap-2">
         <Button
           type="button"
